@@ -1,11 +1,13 @@
+import urllib
 # make a list of curse words
 # import the text,
-def read_text():
-    quotes = open('./movie_quotes.txt').read()
-    print quotes
+def read_text(path):
+    quotes = open(path).read()
+    return quotes
 
-# separate it by word
-# compare each word to the list of curse words
-# if there's a match, alert the user to the profanity
+def check_profanity(text):
+    connection = urllib.urlopen('http://www.wdylike.appspot.com/?q=' + text)
+    return connection.read()
 
-read_text()
+text = read_text('./movie_quotes.txt')
+print check_profanity(text)
