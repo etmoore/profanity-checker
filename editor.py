@@ -6,7 +6,9 @@ def read_text(path):
 
 def check_profanity(text):
     connection = urllib.urlopen('http://www.wdylike.appspot.com/?q=' + text)
-    return connection.read()
+    result = connection.read()
+    connection.close()
+    return result
 
 text = read_text('./movie_quotes.txt')
 print check_profanity(text)
