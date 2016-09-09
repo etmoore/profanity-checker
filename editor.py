@@ -1,6 +1,5 @@
 import urllib
-# make a list of curse words
-# import the text,
+
 def read_text(path):
     quotes = open(path).read()
     return quotes
